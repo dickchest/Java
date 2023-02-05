@@ -1,4 +1,4 @@
-package JavaProfessionalCourse.Lesson6.HomeWork6;
+package JavaProfessionalCourseHomeWork.HomeWork6;
 
 import java.util.Arrays;
 

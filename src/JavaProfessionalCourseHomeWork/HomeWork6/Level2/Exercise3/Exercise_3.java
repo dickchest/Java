@@ -1,4 +1,4 @@
-package JavaProfessionalCourse.Lesson6.HomeWork6.Level2.Exercise3;
+package JavaProfessionalCourseHomeWork.HomeWork6.Level2.Exercise3;
 
 import java.util.ArrayList;
 import java.util.List;
