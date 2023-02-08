@@ -11,7 +11,8 @@ public class Exercise_3 {
     которая будет искать номера телефонов по введенной фамилии.
     Например в листе <Пупкин Вася 987654 >,<Пупкин Петя 987987>,
     <Пенков Вася 123456> при поиске по Пупкин результатом будет List : <987654>,<987987>
-     */
+
+         */
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -31,6 +32,9 @@ public class Exercise_3 {
             }
         }
         System.out.println(list);
+
+        // нужно писать так
+        int max = Integer.MIN_VALUE;
     }
 }
 
