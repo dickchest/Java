@@ -46,4 +46,7 @@ public class DeckOfCards {
         }
     }
 
+    public String[] getDeck() {
+        return deck;
+    }
 }
