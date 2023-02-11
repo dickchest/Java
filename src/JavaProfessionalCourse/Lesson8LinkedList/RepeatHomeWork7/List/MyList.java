@@ -1,17 +1,18 @@
 package JavaProfessionalCourse.Lesson8LinkedList.RepeatHomeWork7.List;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Collection;
+import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class MyList implements List<Integer> {
+/**
+ * @author Rustam Khakov
+ */
+public class MyList implements List<Integer>, Deque<Integer> {
     private int size;
     private Node first;
     private Node last;
-
 
     @Override
     public int size() {
@@ -43,25 +44,12 @@ public class MyList implements List<Integer> {
         return findNodeByIndex(index).getValue();
     }
 
-    private Node findNodeByIndex(int index) {
-        if (index < 0 || index >= size()) {
-            throw new IndexOutOfBoundsException();
-        }
-        int currentIndex = 0;
-        Node currentNode = first;
-        while (index != currentIndex) {
-            currentIndex++;
-            currentNode = currentNode.getNext();
-        }
-        return currentNode;
-    }
-
-
     @Override
-    public Integer set(int index, Integer element) {
+    public Integer set(int index, Integer newValue) {
         Node nodeByIndex = findNodeByIndex(index);
         Integer prevValue = nodeByIndex.getValue();
-        return null;
+        nodeByIndex.setValue(newValue);
+        return prevValue;
     }
 
     @Override
@@ -77,8 +65,8 @@ public class MyList implements List<Integer> {
             this.first = newNode;
         }
         size++;
-
     }
+
 
     @Override
     public void clear() {
@@ -94,7 +82,6 @@ public class MyList implements List<Integer> {
         Integer removedValue = node2Remove.getValue();
         Node prevNode = node2Remove.getPrev();
         Node nextNode = node2Remove.getNext();
-
         if (prevNode != null) {
             prevNode.setNext(nextNode);
         } else {
@@ -106,25 +93,119 @@ public class MyList implements List<Integer> {
         } else {
             this.last = prevNode;
         }
-
-
         node2Remove.setPrev(null);
         node2Remove.setNext(null);
         size--;
         return removedValue;
     }
 
-    @NotNull
     @Override
     public Iterator<Integer> iterator() {
         return new MyListIterator(first);
     }
 
+    @Override
+    public boolean remove(Object o) {
+        Iterator<Integer> iterator = iterator();
+        int index = 0;
+        while (iterator.hasNext()) {
+            if (iterator.next().equals(o)) {
+                remove(index);
+                return true;
+            }
+            index++;
+        }
+        return false;
+    }
 
 
     @Override
+    public boolean contains(Object o) {
+        Iterator<Integer> iterator = iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().equals(o)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
     public int indexOf(Object o) {
-        return 0;
+        Iterator<Integer> iterator = iterator();
+        int index = 0;
+        while (iterator.hasNext()) {
+            if (iterator.next().equals(o)) {
+                remove(index);
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends Integer> c) {
+        for (Integer i:c) {
+            add(i);
+        }
+        return true;
+    }
+
+    private Node findNodeByIndex(int index) {
+        // если index > size/2 -> с конца до индекса уменьшая теукщий индекс
+        // иначе с начала до индекса
+        if (index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException();
+        }
+        int currentIndex = 0;
+        Node currentNode = first;
+        while (index != currentIndex) {
+            currentIndex++;
+            currentNode = currentNode.getNext();
+        }
+        return currentNode;
+    }
+
+    /**
+     * Уровень 2 - методы
+     * @see this#findNodeByIndex(int) - сделать поиск с конца, если индекс находится во второй половине списка
+     * @see this#descendingIterator() - итератор из конца в начало
+     * @see this#listIterator() - итератор с дополнительной сылкой на предыдущий
+     * @see this#toArray() - перевести в массив
+     * @see this#containsAll(Collection) - проверить содержатся ли все
+     * @see this#removeAll(Collection) - удалить все которые содержатся в коллекции
+     * @see this#lastIndexOf(Object)  - последний индекс входного элемента (идеально пожходит итератор с конца в начало)
+     * Уровень 3
+     * @see this#subList(int, int) - вернуть новый майлист который будет обрезан
+     * @see this#addAll(int, Collection) - добавить все начиная с какого-то индекса
+     * @see this#retainAll(Collection) - удалить все что не содержится во входной коллекции
+     */
+
+    @Override
+    public Iterator<Integer> descendingIterator() {
+        return null;
+    }
+
+    @Override
+    public ListIterator<Integer> listIterator() {
+        return null;
+    }
+
+
+    @Override
+    public Object[] toArray() {
+        return new Object[0];
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        return false;
     }
 
     @Override
@@ -134,23 +215,17 @@ public class MyList implements List<Integer> {
 
 
     @Override
-    public boolean remove(Object o) {
-        Iterator<Integer> iterator = iterator();
-        int index = 0;
-        while(iterator.hasNext()) {
-            if (iterator.next().equals(o)) {
-                // remove
-                remove(index);
-                return true;
-            }
-            index++;
+    public List<Integer> subList(int fromIndex, int toIndex) {
+        return null;
+    }
 
-        }
+    @Override
+    public boolean addAll(int index, Collection<? extends Integer> c) {
         return false;
     }
 
     @Override
-    public boolean removeAll(@NotNull Collection<?> c) {
+    public boolean retainAll(Collection<?> c) {
         return false;
     }
 
@@ -159,68 +234,128 @@ public class MyList implements List<Integer> {
 
 
 
+
+
+
+
+
+
+
+
+
     @Override
-    public boolean contains(Object o) {
-        return false;
-    }
-
-
-
-    @NotNull
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
-    }
-
-    @NotNull
-    @Override
-    public <T> T[] toArray(@NotNull T[] a) {
+    public <T> T[] toArray(T[] a) {
         return null;
     }
 
 
     @Override
-    public boolean containsAll(@NotNull Collection<?> c) {
-        return false;
+    public void push(Integer integer) {
+        add(0, integer);
     }
 
     @Override
-    public boolean addAll(@NotNull Collection<? extends Integer> c) {
-        return false;
+    public Integer pop() {
+        return remove(size-1);
     }
 
-    @Override
-    public boolean addAll(int index, @NotNull Collection<? extends Integer> c) {
-        return false;
-    }
-
-
-    @Override
-    public boolean retainAll(@NotNull Collection<?> c) {
-        return false;
-    }
-
-
-
-
-
-
-
-    @NotNull
-    @Override
-    public ListIterator<Integer> listIterator() {
-        return null;
-    }
-
-    @NotNull
     @Override
     public ListIterator<Integer> listIterator(int index) {
         return null;
     }
 
-    @NotNull
     @Override
-    public List<Integer> subList(int fromIndex, int toIndex) {
+    public void addFirst(Integer integer) {
+        add(0, integer);
+    }
+
+    @Override
+    public void addLast(Integer integer) {
+        add(integer);
+    }
+
+    @Override
+    public boolean offerFirst(Integer integer) {
+        return false;
+    }
+
+    @Override
+    public boolean offerLast(Integer integer) {
+        return false;
+    }
+
+    @Override
+    public Integer removeFirst() {
+        return remove(0);
+    }
+
+    @Override
+    public Integer removeLast() {
+        return remove(size-1);
+    }
+
+    @Override
+    public Integer pollFirst() {
+        return remove(0);
+    }
+
+    @Override
+    public Integer pollLast() {
+        return remove(size -1);
+    }
+
+    @Override
+    public Integer getFirst() {
+        return get(0);
+    }
+
+    @Override
+    public Integer getLast() {
+        return get(size -1);
+    }
+
+    @Override
+    public Integer peekFirst() {
+        return getFirst();
+    }
+
+    @Override
+    public Integer peekLast() {
+        return getLast();
+    }
+
+    @Override
+    public boolean removeFirstOccurrence(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean removeLastOccurrence(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean offer(Integer integer) {
+        return false;
+    }
+
+    @Override
+    public Integer remove() {
+        return null;
+    }
+
+    @Override
+    public Integer poll() {
+        return null;
+    }
+
+    @Override
+    public Integer element() {
+        return null;
+    }
+
+    @Override
+    public Integer peek() {
         return null;
     }
 }

@@ -1,17 +1,40 @@
 package JavaProfessionalCourse.Lesson8LinkedList.RepeatHomeWork7.List;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+/**
+ * @see this#toArray() уже реализован
+ * Уровень 1
+ * @see this#size()
+ * @see this#isEmpty()
+ * @see this#iterator()
+ * @see this#clear()
+ * @see this#get(int)
+ * @see this#set(int, Integer)
+ * @see this#contains(Object)
+ * @see this#indexOf(Object)
+ * @see this#lastIndexOf(Object)
+ * @see this#add(Integer)
+ * Уровень 2
+ * @see this#remove(Object)
+ * @see this#remove(int)
+ * @see this#add(int, Integer)
+ * @author Rustam Khakov
+ */
 public class MyArrayList implements List<Integer> {
     Integer[] array;
 
+    public MyArrayList() {
+        //todo реализуй меня
+    }
 
-
+    @Override
+    public Object[] toArray() {
+        return array;
+    }
 
     @Override
     public int size() {
@@ -24,61 +47,8 @@ public class MyArrayList implements List<Integer> {
     }
 
     @Override
-    public boolean contains(Object o) {
-        return false;
-    }
-
-    @NotNull
-    @Override
     public Iterator<Integer> iterator() {
         return null;
-    }
-
-    @NotNull
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
-    }
-
-    @NotNull
-    @Override
-    public <T> T[] toArray(@NotNull T[] a) {
-        return null;
-    }
-
-    @Override
-    public boolean add(Integer integer) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean containsAll(@NotNull Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(@NotNull Collection<? extends Integer> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(int index, @NotNull Collection<? extends Integer> c) {
-        return false;
-    }
-
-    @Override
-    public boolean removeAll(@NotNull Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean retainAll(@NotNull Collection<?> c) {
-        return false;
     }
 
     @Override
@@ -97,13 +67,32 @@ public class MyArrayList implements List<Integer> {
     }
 
     @Override
-    public void add(int index, Integer element) {
+    public boolean add(Integer integer) {
+        return false;//создать новый массив потом сделать copy старых значений в новый массив
+    }
 
+    @Override
+    public boolean contains(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        return false;
     }
 
     @Override
     public Integer remove(int index) {
+        // создать копию массива на размер 1 меньше
+        // нужно будет создать новый массив, после скопировать в него все что до этого индекса
+        // скопировать все что после этого индекса
         return null;
+    }
+
+    @Override
+    public void add(int index, Integer element) {
+        // нужно будет создать новый массив, после скопировать в него все что до этого индекса
+        // вставить этот индекс и скопировать все что после этого индекса
     }
 
     @Override
@@ -111,26 +100,60 @@ public class MyArrayList implements List<Integer> {
         return 0;
     }
 
+
     @Override
     public int lastIndexOf(Object o) {
         return 0;
     }
 
-    @NotNull
+    /**
+     *     !!!!!!!    все что ниже не реализовываем  !!!!!!!
+     */
+
+
+
     @Override
     public ListIterator<Integer> listIterator() {
         return null;
     }
 
-    @NotNull
+    @Override
+    public List<Integer> subList(int fromIndex, int toIndex) {
+        return null;
+    }
+
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends Integer> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(int index, Collection<? extends Integer> c) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        return false;
+    }
+
     @Override
     public ListIterator<Integer> listIterator(int index) {
         return null;
     }
-
-    @NotNull
     @Override
-    public List<Integer> subList(int fromIndex, int toIndex) {
-        return null;
+    public <T> T[] toArray(T[] a) {
+        return null; //не реализовывать
     }
 }
