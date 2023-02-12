@@ -1,4 +1,4 @@
-package JavaProfessionalCourse.Lesson8LinkedList.RepeatHomeWork7.List;
+package JavaProfessionalCourseHomeWork.HomeWork8.List;
 
 import java.util.*;
 

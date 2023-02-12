@@ -1,7 +1,9 @@
-package JavaProfessionalCourse.Lesson8LinkedList.RepeatHomeWork7.List;
+package JavaProfessionalCourseHomeWork.HomeWork8.List;
 
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ListIterator;
 
 /**
  * @author Rustam Khakov
