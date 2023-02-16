@@ -1,14 +1,17 @@
 package JavaProfessionalCourse.Lesson8LinkedList.RepeatHomeWork7.List;
 
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 /**
  * @author Rustam Khakov
  */
 public class MyListTest {
     public static void main(String[] args) {
-        List<Integer> values = new MyList();
+        MyList values = new MyList();
         values.add(8);
         values.add(5);
         System.out.println(values.size());
@@ -33,7 +36,11 @@ public class MyListTest {
         System.out.println(values.get(3));
 
         // descendingIterator() = не находит такого метода. Не могу понять по какой причине
-//        Iterator<Integer> iterator = values.descendingIterator();
+        Iterator<Integer> iterator1 = values.descendingIterator();
+        while (iterator1.hasNext()) {
+            System.out.println(iterator1.next());
+        }
+
 
         System.out.println("---   ListIterator   ---");
         ListIterator<Integer> iterator = values.listIterator();
@@ -41,7 +48,7 @@ public class MyListTest {
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
             i++;
-            if (i==4) {
+            if (i == 4) {
                 System.out.println(iterator.previous());
             }
         }
@@ -52,10 +59,10 @@ public class MyListTest {
         System.out.println(Arrays.toString(array));
 
         System.out.println("---   containsAll   ---");
-        List<Integer> elementsToSearchFor = List.of(3,1,2);
+        List<Integer> elementsToSearchFor = List.of(3, 1, 2);
         System.out.println(values.containsAll(elementsToSearchFor));
 
-        elementsToSearchFor = List.of(3,1,2, 6);
+        elementsToSearchFor = List.of(3, 1, 2, 6);
         System.out.println(values.containsAll(elementsToSearchFor));
 
         System.out.println("---   removeAll(Collection<?> c)   ---");

@@ -44,7 +44,7 @@ public class MyArrayList implements List<Integer> {
         for (int i = 0; i < array.length; i++) {
             if (array[i] != null) return false;
         }
-        return true;
+        return array.length == 0;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class MyArrayList implements List<Integer> {
 
     @Override
     public void clear() {
-        new MyArrayList();
+        array = new Integer[0];
     }
 
     @Override
@@ -77,6 +77,7 @@ public class MyArrayList implements List<Integer> {
     public boolean add(Integer value) {
         Integer[] tempArray = array;
         this.array = Arrays.copyOf(tempArray, tempArray.length + 1);
+
         array[array.length - 1] = value;
         return true;//создать новый массив потом сделать copy старых значений в новый массив
     }

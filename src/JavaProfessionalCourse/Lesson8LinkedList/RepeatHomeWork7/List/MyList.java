@@ -151,26 +151,30 @@ public class MyList implements List<Integer>, Deque<Integer> {
     private Node findNodeByIndex(int index) {
         // если index > size/2 -> с конца до индекса уменьшая теукщий индекс
         // иначе с начала до индекса
+
         if (index < 0 || index >= size()) {
             throw new IndexOutOfBoundsException();
         }
-        int currentIndex = 0;
-        Node currentNode = first;
-        int operand = 1;
 
-        if (index > size() / 2) {
-            currentIndex = size() - 1;
-            currentNode = last;
-            operand = -1;
-        }
+        boolean iterateFromFirst = index <= size / 2;
 
-        while (index != currentIndex) {
-            currentIndex += operand;
 
-            if (operand > 0) {
+        Node currentNode;
+        if (iterateFromFirst) {
+            int currentIndex = 0;
+            currentNode = first;
+            while (index != currentIndex) {
+                currentIndex++;
                 currentNode = currentNode.getNext();
-            } else {
+            }
+        } else {
+            int currentIndex = size-1;
+            currentNode = last;
+
+            while (index != currentIndex) {
+                currentIndex--;
                 currentNode = currentNode.getPrev();
+
             }
         }
         return currentNode;
@@ -195,7 +199,7 @@ public class MyList implements List<Integer>, Deque<Integer> {
 
     @Override
     public Iterator<Integer> descendingIterator() {
-        return new MyDescendingIterator(last);
+        return new DescendingListIterator(last);
     }
 
     @Override
@@ -206,8 +210,10 @@ public class MyList implements List<Integer>, Deque<Integer> {
 
     @Override
     public Object[] toArray() {
+        Object[] array = new Object[size];
+
         Iterator<Integer> iterator = iterator();
-        Integer[] array = new Integer[size()];
+
         int index = 0;
         while (iterator.hasNext()) {
             array[index] = iterator.next();
@@ -218,57 +224,30 @@ public class MyList implements List<Integer>, Deque<Integer> {
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        Iterator<Integer> objectIterator = (Iterator<Integer>) c.iterator();
-        boolean searchResult = false;
-        while (objectIterator.hasNext()) {
-            Integer nextObject = objectIterator.next();
-
-            Iterator<Integer> listIterator = iterator();
-            while (listIterator.hasNext()) {
-                if (listIterator.next().equals(nextObject)) {
-                    searchResult = true;
-                    break;
-                }
-            }
-            if (!searchResult) {
+        boolean containsAll = false;
+        for (Object i :c) {
+            if (!contains(i)) {
                 return false;
             }
-            searchResult = false;
         }
         return true;
     }
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        // лист для копирования
-        Integer[] tempArray = (Integer[]) toArray();
-
-        clear();
-
-        boolean searchResult = false;
-        boolean isInTheList = false;
-
-        for (Integer i : tempArray) {
-
-            for (Object objectIterator : c) {
-                if (i.equals(objectIterator)) {
-                    searchResult = true;
-                    isInTheList = true;
-                    break;
-                }
+        boolean containsAll = false;
+        for (Object i :c) {
+            if (!contains(i)) {
+                remove(i);
             }
-            if (!isInTheList) {
-                add(i);
-            }
-            isInTheList = false;
         }
-        return searchResult;
+        return true;
     }
 
     @Override
     public int lastIndexOf(Object o) {
         Integer[] array = (Integer[]) toArray();
-        for (int i=array.length-1; i >= 0 ; i--) {
+        for (int i = array.length - 1; i >= 0; i--) {
             if (array[i].equals(o)) {
                 return i;
             }
@@ -279,32 +258,30 @@ public class MyList implements List<Integer>, Deque<Integer> {
 
     @Override
     public List<Integer> subList(int fromIndex, int toIndex) {
-        if (fromIndex<0 || fromIndex>size || toIndex<0 || toIndex > size || toIndex<fromIndex) {
-            throw new IndexOutOfBoundsException();
-        }
-        List<Integer> subList = new MyList();
-        int index = 0;
-        Iterator<Integer> iterator = iterator();
-        while (iterator.hasNext()) {
-            Integer tempValue = iterator.next();
-            if (index >= fromIndex && index <= toIndex) {
-                subList.add(tempValue);
-            }
-            index++;
-        }
-        return subList;
+//        Node subListCurrentNode =
+//        List<Integer> subList = new MyList();
+//        int current = fromIndex;
+//        while(current != toIndex) {
+//            subListCurrentNode.add(subListCurrentNode);
+//
+//
+//            current++;
+//        }
+
+
+        return null;
     }
 
     @Override
     public boolean addAll(int index, Collection<? extends Integer> c) {
 
-        if (index<0 || index > size || c.equals(null)) {
+        if (index < 0 || index > size || c.equals(null)) {
             return false;
         }
         int addElementsIndex = 0;
 
         for (Integer element : c) {
-            add(index+addElementsIndex, element);
+            add(index + addElementsIndex, element);
             addElementsIndex++;
         }
         return true;
@@ -312,27 +289,8 @@ public class MyList implements List<Integer>, Deque<Integer> {
 
     @Override
     public boolean retainAll(Collection<?> c) {
-        // лист для копирования
-        Integer[] tempArray = (Integer[]) toArray();
-        clear();
 
-        boolean searchResult = false;
-        boolean isInTheList = false;
-
-        for (Integer i : tempArray) {
-            for (Object objectIterator : c) {
-                if (i.equals(objectIterator)) {
-                    searchResult = true;
-                    isInTheList = true;
-                    break;
-                }
-            }
-            if (isInTheList) {
-                add(i);
-            }
-            isInTheList = false;
-        }
-        return searchResult;
+        return true;
     }
 
 
