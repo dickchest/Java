@@ -1,9 +1,6 @@
 package JavaProfessionalCourseHomeWork.HomeWork9.Level2;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Exercise1 {
     /*
@@ -19,16 +16,13 @@ Output: [12, 23, 34, 45, 57, 67, 89]
 
     public static void main(String[] args) {
         List<Integer> inputList = Arrays.asList(1, 2, 2, 3, 4, 4, 4);
-        List<Integer> outputList = new ArrayList<>();
 
-        Integer lastElement = null;
-        for (Integer currentElement : inputList) {
-            if (!currentElement.equals(lastElement)) {
-                outputList.add(currentElement);
-            }
-            lastElement = currentElement;
-        }
+        TreeSet<Integer> treeSet = new TreeSet<>();
+        treeSet.addAll(inputList);
+        System.out.println(treeSet);
 
-        System.out.println(outputList);
+        HashSet<Integer> hashSet = new HashSet<>();
+        hashSet.addAll(inputList);
+        System.out.println(hashSet);
     }
 }

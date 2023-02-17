@@ -1,12 +1,8 @@
 package JavaProfessionalCourseHomeWork.HomeWork9;
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.net.Inet4Address;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
 
 /*
 Даны два LinkedList, содержаших целые числа. Числа в них расположены в возрастающем порядке.
@@ -17,42 +13,57 @@ import java.util.ListIterator;
 public class Exercise6 {
     public static void main(String[] args) {
         // initialization of the lists
-        List<Integer> listOne = List.of(1, 2, 4);
-        List<Integer> listTwo = List.of(1, 3, 4, 7, 9);
+        List<Integer> listOne = List.of(1, 2);
+        List<Integer> listTwo = List.of(1, 4, 6, 7, 9);
         List<Integer> listResult = new LinkedList<>();
 
         // initialization of the Iterators
         Iterator<Integer> listOneIterator = listOne.listIterator();
         Iterator<Integer> listTwoIterator = listTwo.listIterator();
 
+        Integer currentOne = getNext(listOneIterator);
+        Integer currentTwo = getNext(listTwoIterator);
+
         // iteration through the first list
-        while (listOneIterator.hasNext()) {
-            Integer currentItemFromListOne;
-            Integer currentItemFromListTwo;
-            currentItemFromListOne = listOneIterator.next();
+        while (currentOne != null || currentTwo != null) {
+            if (currentOne == null) {
+                System.out.println("1 is null");
+                listResult.add(currentTwo);
+                currentTwo = getNext(listTwoIterator);
+                continue;
+            }
 
-            if (listTwoIterator.hasNext()) {
-                currentItemFromListTwo = listTwoIterator.next();
-                if (currentItemFromListOne>currentItemFromListTwo) {
-                    listResult.add(currentItemFromListTwo);
-                    listResult.add(currentItemFromListOne);
-                } else {
-                    listResult.add(currentItemFromListOne);
-                    listResult.add(currentItemFromListTwo);
-                }
+            if (currentTwo == null) {
+                System.out.println("2 is null");
+                listResult.add(currentOne);
+                currentOne = getNext(listOneIterator);
+                continue;
+            }
+            // проверка условий, пока оба листа не закончились
+            if (currentOne < currentTwo) {
+                listResult.add(currentOne);
+                currentOne = getNext(listOneIterator);
             } else {
-                listResult.add(currentItemFromListOne);
+                listResult.add(currentTwo);
+                currentTwo = getNext(listTwoIterator);
             }
         }
 
-        // checking, if second list has more elements
-        if (listTwoIterator.hasNext()) {
-            while (listTwoIterator.hasNext()) {
-                listResult.add(listTwoIterator.next());
-            }
-        }
+//        // checking, if second list has more elements
+//        if (listTwoIterator.hasNext()) {
+//            while (listTwoIterator.hasNext()) {
+//                listResult.add(listTwoIterator.next());
+//            }
+//        }
 
         // printing the result
         System.out.println(listResult);
+    }
+
+    public static Integer getNext(Iterator<Integer> iterator) {
+        if (iterator.hasNext()) {
+            return iterator.next();
+        }
+        return null;
     }
 }
