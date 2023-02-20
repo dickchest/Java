@@ -168,7 +168,7 @@ public class MyList implements List<Integer>, Deque<Integer> {
                 currentNode = currentNode.getNext();
             }
         } else {
-            int currentIndex = size-1;
+            int currentIndex = size - 1;
             currentNode = last;
 
             while (index != currentIndex) {
@@ -225,7 +225,7 @@ public class MyList implements List<Integer>, Deque<Integer> {
     @Override
     public boolean containsAll(Collection<?> c) {
         boolean containsAll = false;
-        for (Object i :c) {
+        for (Object i : c) {
             if (!contains(i)) {
                 return false;
             }
@@ -235,22 +235,21 @@ public class MyList implements List<Integer>, Deque<Integer> {
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        boolean containsAll = false;
-        for (Object i :c) {
-            if (!contains(i)) {
-                remove(i);
-            }
+        for (Object i : c) {
+            remove(i);
         }
         return true;
     }
 
     @Override
     public int lastIndexOf(Object o) {
-        Integer[] array = (Integer[]) toArray();
-        for (int i = array.length - 1; i >= 0; i--) {
-            if (array[i].equals(o)) {
-                return i;
+        Iterator<Integer> iterator = descendingIterator();
+        int index = size - 1;
+        while (iterator.hasNext()) {
+            if (iterator.next().equals(o)) {
+                return index;
             }
+            index --;
         }
         return -1;
     }
@@ -258,38 +257,37 @@ public class MyList implements List<Integer>, Deque<Integer> {
 
     @Override
     public List<Integer> subList(int fromIndex, int toIndex) {
-//        Node subListCurrentNode =
-//        List<Integer> subList = new MyList();
-//        int current = fromIndex;
-//        while(current != toIndex) {
-//            subListCurrentNode.add(subListCurrentNode);
-//
-//
-//            current++;
-//        }
-
-
-        return null;
+        Node subListCurrentNode = findNodeByIndex(fromIndex);
+        List<Integer> subList = new MyList();
+        int current = fromIndex;
+        while(current != toIndex) {
+            subList.add(subListCurrentNode.getValue());
+            subListCurrentNode = subListCurrentNode.getNext();
+            current++;
+        }
+        return subList;
     }
 
     @Override
     public boolean addAll(int index, Collection<? extends Integer> c) {
 
-        if (index < 0 || index > size || c.equals(null)) {
-            return false;
-        }
-        int addElementsIndex = 0;
+        int toInsertIndex = index;
 
-        for (Integer element : c) {
-            add(index + addElementsIndex, element);
-            addElementsIndex++;
+        for (Integer i : c) {
+            add(toInsertIndex, i);
+            toInsertIndex++;
         }
         return true;
     }
 
     @Override
     public boolean retainAll(Collection<?> c) {
-
+        Iterator<Integer> it = iterator();
+        while (it.hasNext()) {
+            if (!c.contains(it.next())) {
+                it.remove();
+            }
+        }
         return true;
     }
 

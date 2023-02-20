@@ -49,13 +49,6 @@ public class Exercise6 {
             }
         }
 
-//        // checking, if second list has more elements
-//        if (listTwoIterator.hasNext()) {
-//            while (listTwoIterator.hasNext()) {
-//                listResult.add(listTwoIterator.next());
-//            }
-//        }
-
         // printing the result
         System.out.println(listResult);
     }
