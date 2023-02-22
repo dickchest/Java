@@ -27,18 +27,9 @@ public class CatsTest {
         treeSet.addAll(cats);
         System.out.println(treeSet);
 
-
-
-
-
         List<String> strings = Arrays.asList("Test", "test2", "hi", "in", "oop", "dry");
         Collections.sort(strings);
         System.out.println(strings);
-
-
-
-
-
 
     }
 }
