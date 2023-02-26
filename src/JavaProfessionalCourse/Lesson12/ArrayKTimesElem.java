@@ -8,25 +8,25 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class ArrayKTimesElem {
     public static void main(String[] args) {
-        // первый элемент.встречающийся к раз в массиве
+        //Первый элемент, встречающийся k раз в массиве
         List<Integer> list = new ArrayList<>(100);
         for (int i = 0; i < 100; i++) {
             list.add(ThreadLocalRandom.current().nextInt(100));
         }
-        Map<Integer, Integer> howManytimesEnered = new HashMap<>();
-
+        Map<Integer, Integer> howManyTimesEntered = new HashMap<>();
         int k = 3;
         for (int i = 0; i < list.size(); i++) {
-            Integer val = howManytimesEnered.get(list.get(i));
+            Integer val = howManyTimesEntered.get(list.get(i));
             if (val == null) {
-                howManytimesEnered.put(list.get(i), 1);
+                howManyTimesEntered.put(list.get(i), 1);
             } else {
-                howManytimesEnered.put(list.get(i), val + 1);
+                howManyTimesEntered.put(list.get(i), val + 1);
             }
         }
-        for (Integer keys : howManytimesEnered.keySet()) {
-            if (k == howManytimesEnered.get(keys)) {
-                System.out.println(keys);
+
+        for (Integer key : howManyTimesEntered.keySet()) {
+            if (k == howManyTimesEntered.get(key)) {
+                System.out.println(key);
                 return;
             }
         }

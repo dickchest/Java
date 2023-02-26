@@ -25,7 +25,7 @@ public class MyArrayList implements List<Integer> {
     Integer[] array;
 
     public MyArrayList() {
-        //todo реализуй меня
+        // реализуй меня
         array = new Integer[0];
     }
 

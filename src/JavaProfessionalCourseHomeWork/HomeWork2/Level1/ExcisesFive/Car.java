@@ -1,6 +1,7 @@
 package JavaProfessionalCourseHomeWork.HomeWork2.Level1.ExcisesFive;
 
-abstract class Car {
+public abstract class Car {
+
 
     abstract void accelerate();
 
