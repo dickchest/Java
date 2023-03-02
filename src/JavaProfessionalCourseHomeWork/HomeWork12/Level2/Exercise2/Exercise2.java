@@ -30,12 +30,13 @@ public class Exercise2 {
         можно найти пары двумя вложенными циклами и полным перебором,
         но лучше, наверное изначально исключить неподходящие варианты
         и ипользовать только 1 цикл
+
+        нужно было сделать мапу и значение ставить k - текущее число
          */
         Map<Integer, Integer> pairs = new HashMap<>();
 
         for (int i = 0; i < 1000; i++) {
             // сначала создадим хешмеп с числами, которые могут быть суммой k
-
             if (list.get(i) == null || list.get(i) > k) {
                 list.set(i, null);
                 continue;
@@ -52,7 +53,6 @@ public class Exercise2 {
                 pairs.put(list.get(i), x);
                 // обнуляем элементы, что бы не было повторных пар
                 list.set(i, null);
-
                 list.set(list.indexOf(x), null);
             }
         }
