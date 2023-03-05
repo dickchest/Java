@@ -28,20 +28,31 @@ public class Tree {
         }
     }
 
-    // Домашнее задание. не могу разобраться, почему не выводит значения
+    public void printDfsWithoutRec() {
+        printDfsWithRecursion(root);
+    }
+    public void printDfsWithRecursion(Node currentNode) {
+        if (currentNode == null) {
+            return;
+        }
+        printDfsWithRecursion(currentNode.left);
+        System.out.println(currentNode.key);
+        printDfsWithRecursion(currentNode.right);
+    }
+
     public void printDFS() {
         Stack<Node> stack = new Stack<>();
         stack.add(root);
 
         while (!stack.isEmpty()) {
-            Node rootNode = stack.pop();
-            if (root.left != null) {
-                stack.add(rootNode.left);
+            Node currentNode = stack.pop();
+            if (currentNode.left != null) {
+                stack.add(currentNode.left);
             }
-            if (root.right != null) {
-                stack.add(rootNode.right);
+            if (currentNode.right != null) {
+                stack.add(currentNode.right);
             }
-            System.out.println(rootNode.key);
+            System.out.println(currentNode.key);
         }
     }
 

@@ -13,8 +13,10 @@ public class TreeTest {
         tree.add(19);
         tree.add(15);
 
-        tree.print();
-        System.out.println();
-        tree.printBfs();
+//        tree.print();
+//        System.out.println();
+        tree.printDFS();
+//        System.out.println();
+//        tree.printDfsWithoutRec();
     }
 }
