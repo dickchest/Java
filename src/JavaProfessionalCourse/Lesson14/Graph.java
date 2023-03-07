@@ -9,7 +9,7 @@ public class Graph {
 //    Map<Integer, List<Edge>> nodes = new TreeMap<>();
     Map<Integer, List<Edge>> nodes = new TreeMap<>();
 
-    public void pring() {
+    public void print() {
 
         for (Map.Entry<Integer, List<Edge>> entry : nodes.entrySet()) {
 
@@ -28,7 +28,6 @@ public class Graph {
     /*
     вершина графа
      */
-
     public class Node {
         private int value;
         private List<Edge> edges;
@@ -75,26 +74,26 @@ public class Graph {
     }
 
     public void printBfs() {
-        Integer firstElem = nodes.keySet().iterator().next();
-        Queue<Integer> elements = new ArrayDeque<>();
-        elements.add(firstElem);
-        List<Integer> alreadyProcessed = new ArrayList<>();
-        while (!elements.isEmpty()) {
-            Integer currentNodeIndex = elements.poll();
-            if (!alreadyProcessed.contains(currentNodeIndex)) {
-
-                System.out.println(currentNodeIndex);
-                alreadyProcessed.add(currentNodeIndex);
-                List<Edge> edges = nodes.get(currentNodeIndex);
-                if (edges == null) {
+        Integer firstElem = nodes.keySet().iterator().next();  // берем первую ноду
+        Queue<Integer> elements = new ArrayDeque<>();   // очередь для хранения элементов и забирания первого
+        elements.add(firstElem); // добавляем типа в стек первый эелемент
+        List<Integer> alreadyProcessed = new ArrayList<>();  // для запоминания элементов, по которым прошлись
+        while (!elements.isEmpty()) {    // пока есть в стеке элементы для обработки
+            Integer currentNodeIndex = elements.poll();     // достаем первый элемент
+            if (!alreadyProcessed.contains(currentNodeIndex)) {   // если вершину еще не обрабатывали
+                System.out.println(currentNodeIndex);       // выводим эту вершину
+                alreadyProcessed.add(currentNodeIndex);     // добавляем ее к уже отработавшим
+                List<Edge> edges = nodes.get(currentNodeIndex);     // запоминаем все исходящие из нее ребра
+                if (edges == null) {    // если вершина конечная или нет дальнейших ребер, то продолжаем сначала
                     continue;
                 }
-                for (Edge edge : edges) {
+                for (Edge edge : edges) {       // заполняем стек следующими ближайшими вершинами
                     elements.add(edge.to);
                 }
             }
         }
     }
+
 
 
     public void printDfs() {
@@ -105,7 +104,6 @@ public class Graph {
         while (!elements.isEmpty()) {
             Integer currentNodeIndex = elements.pop();
             if (!alreadyProcessed.contains(currentNodeIndex)) {
-
                 System.out.println(currentNodeIndex);
                 alreadyProcessed.add(currentNodeIndex);
                 List<Edge> edges = nodes.get(currentNodeIndex);
@@ -119,20 +117,18 @@ public class Graph {
         }
     }
 
-
     public void findCycles() {
-        List<Integer> nodesIndexes = new ArrayList(nodes.keySet());
+        List<Integer> nodesIndexes = new ArrayList<>(nodes.keySet());
         Collections.sort(nodesIndexes);
-        Integer max = Collections.max(nodesIndexes);
-        int[] colors = new int[max + 1];
-        // 1 - grey
-        // 2 - black
-
+        //Integer max = Collections.max(nodesIndexes);
+        int[] colors = new int[10];
+        // 0 - белый
+        // 1 - серый
+        // 2 - черный
         for (Integer key : nodes.keySet()) {
             if (colors[key] == 0) {
                 findCycle(key, colors);
             }
-
         }
     }
 
@@ -143,10 +139,10 @@ public class Graph {
         if (edges != null) {
             for (Edge edge : edges) {
                 if (colors[edge.to] == 0) {
-                    findCycle(edge.to, colors);
+                    isCycle = isCycle || findCycle(edge.to, colors);
                 } else if (colors[edge.to] == 1) {
-                    System.out.println("cicle not found");
                     isCycle = true;
+                    System.out.println("цикл найден!");
                 }
             }
         }
@@ -154,7 +150,7 @@ public class Graph {
         if (isCycle) {
             System.out.println(nodeIndex);
         }
-        return false;
+        return isCycle;
     }
 
 }

@@ -17,8 +17,8 @@ public class GraphTester {
         // print graph
 
 //        graph.pring();
-//        graph.printBfs();
-        graph.printDfs();
+        graph.printBfs();
+//        graph.printDfs();
 
     }
 }
