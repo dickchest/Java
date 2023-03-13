@@ -1,6 +1,7 @@
 package JavaProfessionalCourseHomeWork.HomeWork7;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class Exercise5 {
     public static void main(String[] args) {
@@ -21,3 +22,4 @@ public class Exercise5 {
         }
     }
 }
+
