@@ -1,6 +1,9 @@
 package JavaProfessionalCourseHomeWork.HomeWork16.Level1.Exercise6;
 
 public class Main {
+    /*
+    6. Переделайте MyLinkedList из одной из предыдущих домашек, чтобы он был generic class
+     */
     public static void main(String[] args) {
         MyLinkedListGeneric<String> str = new MyLinkedListGeneric<>();
         str.add("asd");
