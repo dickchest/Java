@@ -18,13 +18,13 @@ public class Exercise5 {
         int earthquakeCount = 0;
         int endOfShift = 0;
         
-        while (endOfShift != 97) {
+        do {
             earthquake = random.nextInt(10);
             if (earthquake > 3)
                 earthquakeCount++;
 
             endOfShift = random.nextInt(100);
-        }
+        } while (endOfShift != 97);
 
         if (earthquakeCount > 5) {
             System.out.println("Возможно землетрясение! Количество толчков больше 3 = " + earthquakeCount);
