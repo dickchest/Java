@@ -1,4 +1,4 @@
-package net.proselyte.streamapi.model;
+package YouTubeChannel.Stream_Function.java.net.proselyte.streamapi.model;
 
 import java.math.BigDecimal;
 

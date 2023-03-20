@@ -2,18 +2,15 @@ package JavaProfessionalCourse.Lesson18_Stream;
 
 import java.util.Objects;
 
+/**
+ * @author Rustam Khakov
+ */
 public class Aircraft {
+
     String name;
     int age;
+
     int index;
-
-    public int getIndex() {
-        return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
-    }
 
     public Aircraft(String name, int age) {
         this.name = name;
@@ -36,8 +33,17 @@ public class Aircraft {
         this.age = age;
     }
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
     @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Aircraft aircraft = (Aircraft) o;

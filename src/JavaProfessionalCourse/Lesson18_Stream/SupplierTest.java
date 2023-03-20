@@ -1,6 +1,7 @@
 package JavaProfessionalCourse.Lesson18_Stream;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -29,6 +30,10 @@ public class SupplierTest {
 
         if (isMoreThen10Years.or(nameLenMoreThenThree).test(air)) {
             // ......
+        }
+
+        if (Optional.ofNullable(air.name).orElse("").length() >3 || air.age >10) {
+            // .....
         }
 
         Consumer<String> printer = s-> System.out.println(s); // посредник

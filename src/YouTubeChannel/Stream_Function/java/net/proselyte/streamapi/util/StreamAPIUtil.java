@@ -1,7 +1,7 @@
-package net.proselyte.streamapi.util;
+package YouTubeChannel.Stream_Function.java.net.proselyte.streamapi.util;
 
-import net.proselyte.streamapi.model.Specialist;
-import net.proselyte.streamapi.model.Specialty;
+import YouTubeChannel.Stream_Function.java.net.proselyte.streamapi.model.Specialist;
+import YouTubeChannel.Stream_Function.java.net.proselyte.streamapi.model.Specialty;
 
 import java.math.BigDecimal;
 import java.util.Comparator;
