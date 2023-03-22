@@ -1,4 +1,4 @@
-package JavaProfessionalCourse.Lesson2_extendtion;
+package JavaProfessionalCourse.Lesson2_Extending;
 
 public class Symbol {
     protected String color;

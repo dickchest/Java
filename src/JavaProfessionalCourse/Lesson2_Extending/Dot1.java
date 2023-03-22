@@ -1,4 +1,4 @@
-package JavaProfessionalCourse.Lesson2_extendtion;
+package JavaProfessionalCourse.Lesson2_Extending;
 
 public final class Dot1 extends Circle1 {
 

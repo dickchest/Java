@@ -1,6 +1,4 @@
-package JavaProfessionalCourse.Lesson1;
-
-import java.util.Scanner;
+package JavaProfessionalCourse.Lesson1_Object_Modifier_Encapsulation;
 
 public class Example1 {
 

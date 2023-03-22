@@ -13,7 +13,6 @@ public class Exercise9 {
 
         List<Integer> numbers = Arrays.asList(3, 1, 2, 5, 7, 5, 3);
         Comparator<Integer> ascOrder = Comparator.naturalOrder();
-//        numbers.sort(ascOrder);
         mySort(numbers, ascOrder);
         System.out.println(numbers);
     }

@@ -1,4 +1,4 @@
-package JavaProfessionalCourse.Lesson2_extendtion;
+package JavaProfessionalCourse.Lesson2_Extending;
 
 public class Triangle1 extends Shape1 {
     int firstSide;

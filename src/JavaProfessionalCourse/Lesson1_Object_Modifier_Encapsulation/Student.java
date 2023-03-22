@@ -1,4 +1,4 @@
-package JavaProfessionalCourse.Lesson1;
+package JavaProfessionalCourse.Lesson1_Object_Modifier_Encapsulation;
 
 public class Student {
     private String name;

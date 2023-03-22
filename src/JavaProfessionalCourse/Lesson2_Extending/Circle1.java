@@ -1,4 +1,4 @@
-package JavaProfessionalCourse.Lesson2_extendtion;
+package JavaProfessionalCourse.Lesson2_Extending;
 
 public class Circle1 extends Shape1 {
     int radius;

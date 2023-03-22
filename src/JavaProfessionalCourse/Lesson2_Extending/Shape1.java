@@ -1,4 +1,4 @@
-package JavaProfessionalCourse.Lesson2_extendtion;
+package JavaProfessionalCourse.Lesson2_Extending;
 
 public abstract class Shape1 {
     protected int size;
