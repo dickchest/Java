@@ -18,11 +18,11 @@ public class Exercise1 {
         }
 
         Set<Integer> result = list.stream()
-                .filter(v->Math.abs(v) > 50)
+                .filter(v->Math.abs(v) < 50)
                 .map(v-> v+20)
                 .sorted(Comparator.naturalOrder())
                 .skip(5)
-                .limit(10)
+                .limit(5)
                 .collect(Collectors.toSet());
 
         System.out.println(result);

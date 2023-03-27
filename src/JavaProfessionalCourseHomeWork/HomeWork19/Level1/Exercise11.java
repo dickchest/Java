@@ -10,7 +10,7 @@ public class Exercise11 {
         List<String> list = Arrays.asList("BigBen", "BigBob", "Big", "Ben", "Big Bob");
 
         long count = list.stream()
-                .filter(v -> v.equals("Big"))
+                .filter(v -> v.contains("Big"))
                 .count();
 
         System.out.println(count);
