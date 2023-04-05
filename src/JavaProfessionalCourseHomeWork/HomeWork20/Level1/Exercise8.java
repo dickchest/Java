@@ -37,6 +37,5 @@ public class Exercise8 {
                 .boxed()
                 .collect(Collectors.toCollection(LinkedList::new));
         System.out.println(listResult);
-
     }
 }
