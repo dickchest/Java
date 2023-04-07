@@ -6,10 +6,7 @@ import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /*
@@ -27,7 +24,7 @@ import java.util.stream.Collectors;
 public class Exercise8 {
     public static void main(String[] args) throws IOException {
 
-        List<MatchResult> matches = Files.lines(Path.of("matches.txt"))
+        List<MatchResult> matches = Files.lines(Path.of("data","matches.txt"))
                 .map(MatchResult::new)
                 .collect(Collectors.toList());
 
@@ -80,17 +77,26 @@ public class Exercise8 {
         Map<String, Integer> teamTable = new HashMap<>();
 
         for (MatchResult result : matches) {
-            if (teamTable.get(result.getFirstTeam()) == null) {
-                teamTable.put(result.getFirstTeam(), result.getFirstTeamCount());
-            } else {
-                teamTable.put(result.getFirstTeam(), teamTable.get(result.getFirstTeam()) + result.getFirstTeamCount());
-            }
+            teamTable.put(result.getFirstTeam(), result.getFirstTeamCount() + teamTable.getOrDefault(result.getFirstTeam(), 0));
+//            teamTable.put(result.getSecondTeam(), result.getSecondTeamCount() + teamTable.getOrDefault(result.getSecondTeam(), 0));
+            teamTable.put(result.getSecondTeam(), teamTable.computeIfAbsent(result.getSecondTeam(), v-> 0) + result.getSecondTeamCount());
 
-            if (teamTable.get(result.getSecondTeam()) == null) {
-                teamTable.put(result.getSecondTeam(), result.getSecondTeamCount());
-            } else {
-                teamTable.put(result.getSecondTeam(), teamTable.get(result.getSecondTeam()) + result.getSecondTeamCount());
-            }
+//
+//            Map<String, List<Integer>> groupedByName = new HashMap<>();
+//            groupedByName.computeIfAbsent(result.getFirstTeam(), v -> new ArrayList<>())
+//                    .add(result.getFirstTeamCount());
+
+//            if (teamTable.get(result.getFirstTeam()) == null) {
+//                teamTable.put(result.getFirstTeam(), result.getFirstTeamCount());
+//            } else {
+//                teamTable.put(result.getFirstTeam(), teamTable.get(result.getFirstTeam()) + result.getFirstTeamCount());
+//            }
+//
+//            if (teamTable.get(result.getSecondTeam()) == null) {
+//                teamTable.put(result.getSecondTeam(), result.getSecondTeamCount());
+//            } else {
+//                teamTable.put(result.getSecondTeam(), teamTable.get(result.getSecondTeam()) + result.getSecondTeamCount());
+//            }
         }
         System.out.println(teamTable);
 
