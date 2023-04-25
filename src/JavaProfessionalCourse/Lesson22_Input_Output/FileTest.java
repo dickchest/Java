@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class FileTest {
     public static void main(String[] args) throws IOException {
         File file = new File("names.txt");
-//        file.createNewFile();
+        file.createNewFile();
         System.out.println(file.getName());
         System.out.println(file.getPath());
         System.out.println(file.getAbsolutePath()); // абсолютный пусть к фалу

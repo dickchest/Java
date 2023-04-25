@@ -1,6 +1,8 @@
 package JavaProfessionalCourse.Lesson22_Input_Output;
 
-public class MatchResult {
+import java.io.Serializable;
+
+public class MatchResult implements Serializable {
     String firstTeam;
     String secondTeam;
     int firstTeamCount;
