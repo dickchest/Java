@@ -1,4 +1,4 @@
-package JavaProfessionalCourse.Lesson24;
+package JavaProfessionalCourse.Lesson24_Regex;
 
 /**
  * @author Rustam Khakov

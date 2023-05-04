@@ -1,4 +1,4 @@
-package JavaProfessionalCourse.Lesson24;
+package JavaProfessionalCourse.Lesson24_Regex;
 
 import java.net.MalformedURLException;
 import java.net.URL;

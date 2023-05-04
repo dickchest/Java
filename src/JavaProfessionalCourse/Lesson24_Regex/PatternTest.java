@@ -1,4 +1,4 @@
-package JavaProfessionalCourse.Lesson24;
+package JavaProfessionalCourse.Lesson24_Regex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,6 +21,7 @@ public class PatternTest {
 		Pattern pattern2 = Pattern.compile(strPattern);
 		System.out.println(pattern2.pattern());
 		Matcher matcher2 = pattern2.matcher("test:Vasya, test2:Vasy, test3:Vaa, test:BBB");
+		System.out.println(matcher2.matches());
 
 		while (matcher2.find()) {
 //			System.out.println(matcher2.start());
