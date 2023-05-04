@@ -30,7 +30,5 @@ public class Exercise4 {
         while (idMatcher.find()) {
             System.out.println(idMatcher.group(1));
         }
-
-
     }
 }
