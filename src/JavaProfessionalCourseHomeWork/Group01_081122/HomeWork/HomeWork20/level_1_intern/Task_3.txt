@@ -1,0 +1,8 @@
+Исправьте код:
+
+class MyException extends Throwable, Exception, RuntimeException {
+
+}
+
+public class MyException extends Exception{
+}
