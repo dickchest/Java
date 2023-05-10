@@ -1,6 +1,8 @@
+package Algorithms.Lesson7;
+
 import java.util.Scanner;
 
-public class Temp {
+public class StackExample {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int sideA = scanner.nextInt();
