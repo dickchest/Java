@@ -10,6 +10,8 @@ public class Exercise1 {
         String str2 = "([)]";
         String str3 = "{()]";
         System.out.println(isValid(str1));
+        System.out.println(isValid(str2));
+        System.out.println(isValid(str3));
     }
 
     private static boolean isValid(String string) {
