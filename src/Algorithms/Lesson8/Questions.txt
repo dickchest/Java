@@ -8,11 +8,7 @@ a) Приведите несколько примеров применения �
 - Проверка целостности документов: Хеш-функции могут использоваться для проверки целостности документов, таких как PDF-файлы или электронные документы.
 
 b) Создайте ключ RSA и скиньте его в открытом виде.
-b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
-QyNTUxOQAAACDqDdDmbvOQtG3rpKHSxEKaQLJSh6HM67KNkwHPDmYWGwAAAJj2nNJl9pzS
-ZQAAAAtzc2gtZWQyNTUxOQAAACDqDdDmbvOQtG3rpKHSxEKaQLJSh6HM67KNkwHPDmYWGw
-AAAED7/iOUZG1MauyX6qApA6Xk+dpIbpS1/EuAXZVl3kePt+oN0OZu85C0beukodLEQppA
-slKHoczrso2TAc8OZhYbAAAAE2RpY2tjaGVzdEBnbWFpbC5jb20BAg==
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOoN0OZu85C0beukodLEQppAslKHoczrso2TAc8OZhYb dickchest@gmail.com
 
 
 Level 2
