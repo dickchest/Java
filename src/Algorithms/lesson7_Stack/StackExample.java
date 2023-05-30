@@ -1,4 +1,4 @@
-package Algorithms.Lesson7;
+package Algorithms.lesson7_Stack;
 
 import java.util.Scanner;
 

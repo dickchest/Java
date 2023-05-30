@@ -1,4 +1,4 @@
-package Algorithms.Lesson7.homeWork;
+package Algorithms.lesson7_Stack.homeWork;
 
 import java.util.LinkedList;
 import java.util.Queue;

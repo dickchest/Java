@@ -1,4 +1,4 @@
-package Algorithms.Lesson7;
+package Algorithms.lesson7_Stack;
 
 public class Light {
     public static void main(String[] args) {

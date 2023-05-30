@@ -1,4 +1,4 @@
-package Algorithms.Lesson9;
+package Algorithms.lesson9_GreedyAlgorithms;
 
 public class Exercise1 {
     public static void main(String[] args) {

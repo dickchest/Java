@@ -1,7 +1,6 @@
-package Algorithms.Lesson9;
+package Algorithms.lesson9_GreedyAlgorithms;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class main {
@@ -19,7 +18,7 @@ public class main {
 
     }
 
-    // TODO: 23.05.2023 дописать код 
+    // TODO: 23.05.2023 дописать код
     private static boolean getRecurseWeight(int sum, int numberOfWeights, List<Integer> weightsArray) {
         if (!weightsArray.isEmpty() && weightsArray.stream().mapToInt(Integer::intValue).sum() == sum) {
             return true;

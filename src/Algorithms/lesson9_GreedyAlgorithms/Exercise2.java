@@ -1,4 +1,4 @@
-package Algorithms.Lesson9;
+package Algorithms.lesson9_GreedyAlgorithms;
 
 import java.util.Arrays;
 
