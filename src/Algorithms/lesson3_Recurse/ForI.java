@@ -1,4 +1,4 @@
-package Algorithms.lesson2_Recurse;
+package Algorithms.lesson3_Recurse;
 
 public class ForI {
     public static void main(String[] args) {

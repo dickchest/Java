@@ -1,4 +1,4 @@
-package Algorithms.lesson3_DivideAndConquer.homework;
+package Algorithms.lesson4_DivideAndConquer.homework;
 
 /*
 Имея два отсортированных массива размера m и n соответственно, вам нужно найти элемент, который будет

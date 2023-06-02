@@ -1,6 +1,4 @@
-package Algorithms.lesson3_DivideAndConquer;
-
-import org.w3c.dom.ls.LSOutput;
+package Algorithms.lesson4_DivideAndConquer;
 
 public class MaxMin {
     public static void main(String[] args) {

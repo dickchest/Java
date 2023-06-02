@@ -1,4 +1,4 @@
-package Algorithms.lesson4_MergeSort.homework;
+package Algorithms.lesson5_MergeSort.homework;
 
 import java.util.*;
 

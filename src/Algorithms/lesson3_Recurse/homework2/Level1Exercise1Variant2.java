@@ -1,4 +1,4 @@
-package Algorithms.lesson2_Recurse.homework2;
+package Algorithms.lesson3_Recurse.homework2;
 
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ import java.util.Scanner;
 Операцией возведения в степень пользоваться нельзя!
 
  */
-public class Level1Exercise1 {
+public class Level1Exercise1Variant2 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -16,7 +16,7 @@ public class Level1Exercise1 {
         int value = sc.nextInt();
 
         // вызов рекурсивной функции
-        if (isPowerOfTwo(value, 2) == 1) {
+        if (isPowerOfTwo(value) == 1) {
             System.out.println("Yes");
         } else {
             System.out.println("No");
@@ -24,14 +24,14 @@ public class Level1Exercise1 {
 
     }
 
-    private static int isPowerOfTwo(int value, int count) {
+    private static int isPowerOfTwo(int value) {
         // базовый случай
-            if(value == count) {
-                return 1;
-            } else if (value < count) {
-                return 0;
-            }
-            // вызов рекурсии
-            return isPowerOfTwo(value,count*2);
+        if(value % 2 != 0) {
+            return 0;
+        } else if (value == 2) {
+            return 1;
+        }
+        // вызов рекурсии
+        return isPowerOfTwo(value / 2);
     }
 }

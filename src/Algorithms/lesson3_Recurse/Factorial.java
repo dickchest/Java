@@ -1,4 +1,4 @@
-package Algorithms.lesson2_Recurse;
+package Algorithms.lesson3_Recurse;
 
 public class Factorial {
     static int factorial(int n) {

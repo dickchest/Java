@@ -1,9 +1,9 @@
-package Algorithms.lesson4_MergeSort;
+package Algorithms.lesson5_MergeSort;
 
 import java.util.Arrays;
-import java.util.Random;
 
-public class mergeSort3 {
+public class mergeSort {
+    static int count = 0;
 
     public static void main(String[] args) {
         /*
@@ -12,26 +12,20 @@ arr[leftIndex..rightIndex] using merge()
 merge(arr, leftArr, rightArr) - Merges two sub arrays
 of arr[].
          */
-        // инициализируем рандомный большой массив
-        double[] array = new double[1_000];
-        Random r = new Random();
-        for (int i = 0; i < array.length; i++) {
-            array[i] = r.nextDouble(1_000);
-        }
 
+
+        int[] array = {15, 21, 13, 5, 10, 7};
         System.out.println("Given array");
-//        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(array));
 
-        // запоминаем время
-        long startTime = System.currentTimeMillis();
         mergeSort(array);
         System.out.println("Sorted array");
         System.out.println(Arrays.toString(array));
-        System.out.println("Время " + (System.currentTimeMillis() - startTime));
+
+        System.out.println("Количество сравнений = " + count);
     }
 
-
-    public static void mergeSort(double[] arr) {
+    public static void mergeSort(int[] arr) {
         int lengthArray = arr.length; // длина массива
 
         if (lengthArray == 1) { // условие выхода
@@ -39,8 +33,8 @@ of arr[].
         }
 
         int mid = lengthArray / 2; // вычисляем середину массива
-        double[] leftArr = new double[mid]; // левый подмассив
-        double[] rightArr = new double[lengthArray - mid]; // правый подмассив
+        int[] leftArr = new int[mid]; // левый подмассив
+        int[] rightArr = new int[lengthArray - mid]; // правый подмассив
 
         // копируем элементы из массива в подмассив
         for (int i = 0; i < mid; i++) {
@@ -59,7 +53,7 @@ of arr[].
 
     }
 
-    private static void merge(double[] arr, double[] leftArr, double[] rightArr) {
+    private static void merge(int[] arr, int[] leftArr, int[] rightArr) {
         int leftArrLength = leftArr.length;
         int rightArrLength = rightArr.length;
 
@@ -80,6 +74,7 @@ of arr[].
                 rightIndex++;
                 arrIndex++;
             }
+            count++;
         }
 
         // копируем элементы если остались из левого массива

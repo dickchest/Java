@@ -1,4 +1,4 @@
-package Algorithms.lesson3_DivideAndConquer;
+package Algorithms.lesson4_DivideAndConquer;
 
 public class BinarySearch {
     // Функция для поиска элемента x в массиве arr[] и возврата его индекса

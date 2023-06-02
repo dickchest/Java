@@ -1,4 +1,4 @@
-package Algorithms.lesson3_DivideAndConquer.homework;
+package Algorithms.lesson4_DivideAndConquer.homework;
 /*
 Решите задачу: Расставьте в алфавитном порядке буквы. Разрешается
 использование техники Разделяй и властвуй. Полученные данные напечатайте.

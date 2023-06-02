@@ -1,4 +1,4 @@
-package Algorithms.lesson3_DivideAndConquer;
+package Algorithms.lesson4_DivideAndConquer;
 
 import java.util.Arrays;
 

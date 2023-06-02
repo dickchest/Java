@@ -1,6 +1,4 @@
-package Algorithms.lesson4_MergeSort.homework;
-
-import java.util.Arrays;
+package Algorithms.lesson5_MergeSort.homework;
 
 /*
 Дан массив объектов типа Person, который содержит поля name (тип String) и age (тип int). Необходимо

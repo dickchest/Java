@@ -1,4 +1,4 @@
-package Algorithms.lesson2_Recurse.homework2;
+package Algorithms.lesson3_Recurse.homework2;
 
 import java.util.Scanner;
 
