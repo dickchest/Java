@@ -14,6 +14,7 @@ public class QueueExample {
         queue.add(54);
         System.out.println(queue.peek());
         System.out.println(queue.poll());
+        System.out.println(queue.offer(5));
 
     }
 }
