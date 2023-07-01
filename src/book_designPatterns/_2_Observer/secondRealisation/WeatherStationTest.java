@@ -1,4 +1,5 @@
-package book_designPatterns._2_Observer.FirstRealisation;
+package book_designPatterns._2_Observer.secondRealisation;
+
 
 public class WeatherStationTest {
     public static void main(String[] args) {
@@ -6,8 +7,8 @@ public class WeatherStationTest {
 
         CurrentConditionDisplay currentConditionDisplay = new CurrentConditionDisplay(weatherData);
         StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData);
-        ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
-        HeatIndexDisplay heatIndexDisplay = new HeatIndexDisplay(weatherData);
+//        ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
+//        HeatIndexDisplay heatIndexDisplay = new HeatIndexDisplay(weatherData);
 
         weatherData.setMeasurements(80, 65, 30.4f);
         weatherData.setMeasurements(82, 70, 29.2f);

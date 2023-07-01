@@ -1,4 +1,4 @@
-package book_designPatterns._2_Observer.FirstRealisation;
+package book_designPatterns._2_Observer.firstRealisation;
 
 public class ForecastDisplay implements Observer, DisplayElement {
 	private float currentPressure = 29.92f;  

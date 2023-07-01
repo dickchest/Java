@@ -1,4 +1,4 @@
-package book_designPatterns._2_Observer.FirstRealisation;
+package book_designPatterns._2_Observer.firstRealisation;
 
 public class StatisticsDisplay implements Observer, DisplayElement {
     private float maxTemp = 0.0f;

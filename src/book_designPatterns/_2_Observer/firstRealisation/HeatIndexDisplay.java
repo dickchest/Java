@@ -1,4 +1,4 @@
-package book_designPatterns._2_Observer.FirstRealisation;
+package book_designPatterns._2_Observer.firstRealisation;
 
 public class HeatIndexDisplay implements Observer, DisplayElement {
 	float heatIndex = 0.0f;

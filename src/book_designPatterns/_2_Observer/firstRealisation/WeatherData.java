@@ -1,4 +1,4 @@
-package book_designPatterns._2_Observer.FirstRealisation;
+package book_designPatterns._2_Observer.firstRealisation;
 
 import java.util.ArrayList;
 
