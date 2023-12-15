@@ -1,7 +1,5 @@
 package JavaProfessionalCourse.Lesson10_ComparingObjects_Comparator;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Objects;
 
 public class Cat implements Comparable<Cat>{
@@ -79,7 +77,7 @@ public class Cat implements Comparable<Cat>{
     }
 
     @Override
-    public int compareTo(@NotNull Cat o) {
+    public int compareTo(Cat o) {
         int yearsCompare = Integer.compare(this.getBirthYear(), o.getBirthYear());
         if (yearsCompare == 0) {
             return this.name.compareTo(o.name);
