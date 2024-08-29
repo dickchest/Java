@@ -12,7 +12,7 @@ public class StatisticsDisplay implements Observer, DisplayElement {
     private float minTemp = -200;
     private float tempSum = 0.0f;
     private int numReadings;
-    private book_designPatterns._2_Observer.firstRealisation.WeatherData weatherData;
+    private WeatherData weatherData;
 
     public StatisticsDisplay(Observable observable) {
         this.observable = observable;
