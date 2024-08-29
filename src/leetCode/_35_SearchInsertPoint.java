@@ -8,6 +8,7 @@ You must write an algorithm with O(log n) runtime complexity.
 public class _35_SearchInsertPoint {
     public static void main(String[] args) {
         int[] nums = {1, 3, 5, 6};
+
         int target = 0;
         System.out.println(searchInsert(nums, target));
     }
@@ -28,5 +29,23 @@ public class _35_SearchInsertPoint {
             }
         }
         return l;
+    }
+
+    private static int helper(int[] nums, int l, int r, int target) {
+        int middle = l + (r - l) / 2;
+        System.out.println(middle);
+        if (nums[middle] == target) {
+            return middle;
+        }
+        if (l >= r) {
+            return middle;
+        }
+        if (nums[middle] > target) {
+            r = middle - 1;
+        } else {
+            l = middle + 1;
+        }
+        helper(nums, l, r, target);
+        return middle;
     }
 }

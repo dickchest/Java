@@ -18,7 +18,7 @@ public class LowerCaseInputStream extends FilterInputStream {
     }
 
     @Override
-    public int read(@NotNull byte[] b, int off, int len) throws IOException {
+    public int read(byte @NotNull [] b, int off, int len) throws IOException {
         int result = in.read(b, off, len);
         for (int i = off; i < off + result; i++) {
             b[i] = (byte) Character.toLowerCase((char)b[i]);
