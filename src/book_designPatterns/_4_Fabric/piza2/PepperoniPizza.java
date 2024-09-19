@@ -1,4 +1,4 @@
-package book_designPatterns._4_Fabric.pizas;
+package book_designPatterns._4_Fabric.piza2;
 
 public class PepperoniPizza extends Pizza {
     public PepperoniPizza() {

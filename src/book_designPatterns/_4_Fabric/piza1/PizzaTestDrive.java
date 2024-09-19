@@ -1,4 +1,4 @@
-package book_designPatterns._4_Fabric.pizas;
+package book_designPatterns._4_Fabric.piza1;
 
 public class PizzaTestDrive {
     public static void main(String[] args) {
