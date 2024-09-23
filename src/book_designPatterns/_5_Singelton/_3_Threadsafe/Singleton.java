@@ -1,4 +1,4 @@
-package book_designPatterns._5_Singelton.SingletonClassic;
+package book_designPatterns._5_Singelton._3_Threadsafe;
 
 public class Singleton {
     private static Singleton uniqueInstance;
@@ -6,7 +6,7 @@ public class Singleton {
     private Singleton() {
     }
 
-    public static Singleton getInstance() {
+    public static synchronized Singleton getInstance() {
         if (uniqueInstance == null) {
             uniqueInstance = new Singleton();
         }
