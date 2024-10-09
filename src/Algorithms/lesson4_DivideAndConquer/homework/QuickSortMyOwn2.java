@@ -9,6 +9,9 @@ public class QuickSortMyOwn2 {
         int[] array1 = {7, 2, 1, 6, 8, 5, 3, 4};
         int[] array2 = {7, 2, 1, 6, 8, 5, 3, 4};
 
+        System.out.println("simple sort");
+        simpleSort(array);
+        printArray(array);
 
         System.out.println("bubble sort 1");
         bubbleSort(array1);
@@ -86,6 +89,16 @@ public class QuickSortMyOwn2 {
         printArray(Arrays.copyOfRange(arr, partitionIndex, to+ 1));
     }
 
+    private static void simpleSort(int[] arr) {
+        int count = 0;
+        for (int i = 0; i < arr.length - 2; i++) {
+            for (int j = i; j < arr.length - 1; j++) {
+                if (arr[i] > arr[j]) swap(arr, i, j);
+                count++;
+            }
+        }
+        System.out.println("count = " + count);
+    }
     private static void bubbleSort(int[] arr) {
         boolean sorted = false;
         int count = 0;
