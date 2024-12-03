@@ -26,6 +26,20 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 package leetCode;
 
 public class _121_BestTimeToBuyAndSellStock {
+
+    public static int maxProfit2(int[] prices) {
+        int buy = prices[0];
+        int maxProfit = 0;
+
+        for (int price : prices) {
+            if (price < buy) {
+                buy = price;
+            }
+            maxProfit = Integer.max(price - buy, maxProfit);
+        }
+        return maxProfit;
+    }
+
     public static int maxProfit(int[] prices) {
         int buy = prices[0];
         int maxProfit = 0;
@@ -43,6 +57,6 @@ public class _121_BestTimeToBuyAndSellStock {
 
     public static void main(String[] args) {
         int[] arr = {7, 55, 1, 3, 6, 4};
-        System.out.println(maxProfit(arr));
+        System.out.println(maxProfit2(arr));
     }
 }
