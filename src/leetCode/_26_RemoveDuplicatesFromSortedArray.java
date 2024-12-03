@@ -15,7 +15,9 @@ Return k.
 public class _26_RemoveDuplicatesFromSortedArray {
     public static void main(String[] args) {
         int[] nums = {1, 1, 2};
-        System.out.println(Solution.removeDuplicates(nums));
+        int k = Solution.removeDuplicates(nums);
+        System.out.println(Arrays.toString(nums));
+        System.out.println(k);
     }
 }
 
