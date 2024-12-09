@@ -1,28 +1,26 @@
 package leetCode;
 
-import java.util.List;
-
 public class _2_AddTwoNumbers {
     public static void main(String[] args) {
 
     }
 
-    private static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode result = new ListNode();
+    private static ListNode2 addTwoNumbers(ListNode2 l1, ListNode2 l2) {
+        ListNode2 result = new ListNode2();
         
         return null;
     }
 }
 
-class ListNode {
+class ListNode2 {
     int val;
-    ListNode next;
-    ListNode() {}
-    ListNode(int val) {
+    ListNode2 next;
+    ListNode2() {}
+    ListNode2(int val) {
         this.val = val;
     }
 
-    ListNode(int val, ListNode next) {
+    ListNode2(int val, ListNode2 next) {
         this.val = val;
         this.next = next;
     }
